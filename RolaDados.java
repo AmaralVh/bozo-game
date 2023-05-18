@@ -22,7 +22,7 @@ public class RolaDados {
         return this.ladosGerados;
     }
 
-    public int[] rolar(boolean[] selecionados) {
+    public int[] rolar(Boolean[] selecionados) {
         for(int i = 0; i < this.n; i++) {
             if(selecionados[i]) {
                 this.ladosGerados[i] = this.dados[i].rolar();
@@ -32,9 +32,22 @@ public class RolaDados {
         return this.ladosGerados;
     }
 
-    public int[] rolar(java.lang.String string) {
+    public int[] rolar(String string) {
+        int index;
+
         for(int i = 0; i < this.n; i++) {
-            
+            // Guarda o caractere correspondente a i+1:
+            int caracter = i + 49;
+
+            // Verifica se o char correspondente ao dado encontra-se na string
+            // (se nao se encontra, index = -1):
+            index = string.indexOf((char)caracter);
+
+            // Rola o respectivo dado (i) se ele se encontra na string:
+            if(index != -1) {
+                System.out.println("Entrou no if(index != -1)");
+                this.ladosGerados[i] = this.dados[i].rolar();
+            }
         }
 
         return this.ladosGerados;
